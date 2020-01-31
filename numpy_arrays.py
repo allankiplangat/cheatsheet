@@ -56,3 +56,39 @@ array_one[::-1]
 
 # Reverse the array and select every second 
 array_one[::-2]
+
+"""
+MULTIDIMENSIONAL ARRAYS:
+    Elements selection discussed above can be applied on each axis/dimension
+    The result is a reduced array where each element matches the given 
+    selection rules
+    
+    By applying slice on each of the aray axes, we extract sub arrays
+    (Submatrices)
+    
+    With Element spacing other than 1, Submatrices made up of nonconcesecutive
+    elements can be extracted
+    
+    
+"""
+
+f = lambda m, n: n + 10 * m
+A = np.fromfunction(f, (6, 6), dtype=int)
+
+# Extracting The Second Column
+column_one = A[:, 1] # m columns x n rows
+
+# Extracting the second row
+second_row =A[1,:] # m column x n rows
+
+# Upper half diagonal block matrix
+upper_half = A[:3, :3]
+
+# Lower left off-diagonal block matrix
+lower_left = A[3:,:3]
+
+# Every second element starting from 0, 0
+every_second = A[::2, ::2]
+
+# Every second and third element starting from 1,1 
+second_third = A[1::2, 1::3]
