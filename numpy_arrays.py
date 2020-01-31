@@ -92,3 +92,32 @@ every_second = A[::2, ::2]
 
 # Every second and third element starting from 1,1 
 second_third = A[1::2, 1::3]
+
+# Checking strides
+second_third.strides
+A.strides
+
+"""
+VIEWS:
+    Subarrays extracted from arrays using slice operations are alternative 
+    **views** of the same underlaying array data. They are arrays that refer
+    to the same data in memory as the original with different **strides**
+    configuration.
+    
+    When elements in a view are assigned new values, the values of the original
+    array also updated. 
+"""
+
+B = A[1:5, 1:5]
+
+B[:, :] = 0
+
+# Explicitly Copying a view
+C = B[1:3, 1:3].copy()
+
+# This does not affect B since C is a copy of the view B[1:3, 1:3]
+C[:, :]
+
+# Other ways of copying 
+np.copy
+np.array(copy=True)
