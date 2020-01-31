@@ -121,3 +121,64 @@ C[:, :]
 # Other ways of copying 
 np.copy
 np.array(copy=True)
+
+"""
+FANCY INDEXING:
+    Indexing an array with another NumPy array, A python list or a sequence of
+    integers whose values select elements in the indexed array
+    
+    Can be used along each axis/dimension of a multidimensional numpy array
+    
+    It requires that the elements in the array or list used for indexing are 
+    integers
+    
+BOOLEAN-VALUED INDEXING:
+    using boolean-valued index arrays
+    
+    In this case each element(With values True of False) indicates whether or 
+    not to select the element from the list of the corresponding index
+    
+    Its handy when filtering out elements from an array
+    
+NOTE:
+    The arrays returned using fancy indexing and boolean-valued indexing 
+    are not views but rather new independent arrays
+    
+"""
+
+# FANCY INDEXING:
+
+indexing = np.linspace(0, 1, 11)
+
+# Indexing with a numpy array
+wit_ndarray = indexing[np.array([0, 2, 4])]
+
+#Indexing with a python list
+with_list = indexing[[0, 2, 4]]
+
+# BOOLEAN-VALUED INDEXING:
+
+boolean_indexing = A.copy()
+boolean_indexing > 24
+indexed_bool = boolean_indexing[boolean_indexing>20]
+
+# Assigning values to elements selected using fancy indexing
+assing_indexing = np.arange(10)
+indices = [2, 4, 6]
+
+indexed_assigned = assing_indexing[indices]
+
+# This doesnt affect assing_indexing
+indexed_assigned[0] = -1
+no_effect = assing_indexing
+
+# The same for Boolean-valued indexing
+A = np.arange(10)
+B = A[A>5]
+
+# This doesnot affect A
+B[0] = -1
+A
+
+# This alters A
+A[A>5] = -1
