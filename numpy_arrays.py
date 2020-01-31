@@ -1,104 +1,58 @@
-"""
-THE NUMPY ARRAY OJECT:
-    
-"""
 import numpy as np
-# The numpy array object
-"""
-Numpy Library is the data structures for representing multidimentional arrays
-of homogenious data
-
-Homogeneous referes to all the elements in the array having the same data type
-
-In addition to data stored in the array it contains the metadata about its 
-
-shape, size, data type and other attributes
 
 """
-# Finding information about the array
-help(np.ndarray)
-
-# Creating the array
-array_attribute = np.array([[1,2],[3,4],[5,6]])
-
-# Checking the type
-type(array_attribute)
-
-# Checking the dimentions
-array_attribute_dim =  array_attribute.ndim
-
-# Checking the shape of the array
-array_attribute_shape = array_attribute.shape
-
-# Checking the size of the array
-array_attribute_size = array_attribute.size
-
-# Checking the data type of the array
-array_attribute.dtype
-
-# Checking the number of bytes
-array_attribute.nbytes
-
-"""
-DATA TYPES:
-    Since Numpy Arrays are homogeneous all elements have same type
-    For numerical work most importdant data types are int float and complex
-    they come in different sizes as int32 int 64    
+INDEXING AND SLICING:
+    Works for accessing elements and subarrays of numpy arrays
+    Square bracket notation is used
+VARIETIES OF INDEX FORMATS:
+    In general, the expression within a bracket is a tuple
+    where each item in the tuple is a specification which elements to 
+    select from each axis/Dimension of the array   
 """
 
-# How to use the dtype attribute to generate arrays of integer, float and 
-# Complex valued elements
-
-array_int = np.array([1, 2, 3], dtype=np.int)
-array_float = np.array([1, 2, 3], dtype=np.float)
-array_complex = np.array([1, 2, 3], dtype=np.complex)
-
 """
-TYPE CASTING:
-    Once created the datatype cannot be changed but creating a copy is valid
-    with the type casted array values
+ONE DIMENSIONAL ARRAYS:
+    integers : Selects single elements
+    slices: Selects ranges and sequences of elements
     
-METHODS:
-    1. Using the np.array function
-    2. Using astype method of the ndarray clas
+    INT:
+    Positive integers: Index elements from the beginning of the array
+    negative integers: Indexes elements at the end of an array lats being -1
     
-"""
-
-# Type casting an array for method 1
-tobecasted = np.array([1, 2, 3], dtype=np.float)
-tobecasted.dtype
-
-tobecasted2 = np.array(tobecasted, dtype=np.int)
-tobecasted2.dtype
-
-# Type Casting using method  2
-casting = np.array([1, 2, 3,], dtype=np.float)
-casting2 = casting.astype(np.int)
-
-# Promotion of datatype if required by the operation
-promotion = np.array([1, 2, 3], dtype=float)
-promotion2 = np.array([1, 2, 3], dtype=complex)
-
-(promotion + promotion2).dtype
-
-# Approprite to set data type either int or complex default is float
-# You cant take a squareroot of a negative number
-
-square_root = np.sqrt(np.array([-1, 0, 1]))
-
-# Squareroot of complex number
-complex_sqrt = np.sqrt(np.array([-1, 0, 1], dtype=complex))
-
-"""
-REAL AND IMAGINARY PARTS:
-    All numpy array instance have attributes real and imag for extracting real
-    and imaginary parts of the array
+    SLICES:
+    Specified using the : notation 
+    range can be selected using expression like m:n  starting m ending n-1
+    also written explicitly as m:n:1 1-> specifies every element between m and
+    n should be selected:  m:n:2 -> Select every second element: m:n:p -> 
+    select every p elements. 
     
+    if p is negative elements are returned in reverse order starting from m to
+    n+1 (m has to be larger than n)
 """
-realimaginary = np.array([1, 2, 3], dtype=complex)
 
-# Extracting the real
-realimaginary.real
+# Indexing Array of axis/dimention 1
 
-# Extracting the imaginary
-realimaginary.imag
+array_one = np.arange(0, 11)
+array_one
+array_one.ndim
+
+array_one[0]  # First element
+array_one[-1] # Last Element
+array_one[4]  # Fifth Element
+
+# Selecting range of elements
+# -> Select from the second to the second to the second-to-last
+array_one[1:-1]
+
+#Select every element and every second element
+array_one[1:-1:2]
+
+# Select the first 5 and the last 5 
+array_one[:5]
+array_one[-5:]
+
+# Reversing the array
+array_one[::-1]
+
+# Reverse the array and select every second 
+array_one[::-2]
