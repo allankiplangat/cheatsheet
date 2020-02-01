@@ -15,6 +15,7 @@ Creating Arrays
   - [Arrays Filled with Logarithmic Sequences](#arrays-filled-with-logarithmic-sequences)
   - [Meshgrid Arrays](#meshgrid-arrays)
   - [Uninitialized Arrays](#uninitialized-arrays)
+  - [Creating Arrays with Properties of Other Arrays](#creating-arrays-with-properties-of-other-arrays)
 
 ## Arrays Created from Lists and Other Array-Like Objects
 
@@ -377,6 +378,28 @@ Creating Arrays
     array([[0., 0., 0., 0.],
            [0., 0., 0., 0.],
            [0., 0., 0., 0.]])
+
+```
+
+## Creating Arrays with Properties of Other Arrays
+>**Usecase:**
+    A function that takes arrays of unspecified type and size and requires working arrays of the same size and type
+
+>**Function:** 
+    ```np.ones_like```
+    ```np.zeros_like```
+    ```np.full_like```
+    ```np.empty_like```
+
+```python
+
+    In [19]: def f(x):
+    ...:     y = np.ones_like(x)
+    ...:     # compute with x and y
+    ...:     return y
+    ...:     
+
+    In [20]:
 
 ```
 
