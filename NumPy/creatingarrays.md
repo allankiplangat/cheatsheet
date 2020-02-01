@@ -1,6 +1,12 @@
 Creating Arrays
 ============
 
+- [Creating Arrays](#creating-arrays)
+  - [Arrays Created from Lists and Other Array-Like Objects](#arrays-created-from-lists-and-other-array-like-objects)
+      - [1D Array](#1d-array)
+      - [2D Array](#2d-array)
+  - [Arrays Filled with Constant Values](#arrays-filled-with-constant-values)
+
 ## Arrays Created from Lists and Other Array-Like Objects
 
 >**Function:** 
@@ -53,7 +59,7 @@ Creating Arrays
 ## Arrays Filled with Constant Values
 
 >**Functions:** 
-    np.zeros and np.ones
+    np.zeros and np.ones np.full np.fill
 
 >**Arguments:** 
     1. First argument (shape) - ``int`` for **1D** or ```tuple```  describing number of elements along each dimension of the array e.e (2,3)
