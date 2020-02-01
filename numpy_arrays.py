@@ -328,3 +328,29 @@ np.intersect1d(a, b)
 # difference (elements included on one of the sets but not the other)
 np.setdiff1d(a, b)
 np.setdiff1d(b, a)
+
+"""
+    OPERATIONS ON ARRAYS:
+        Some operations acts on arrays as a whole and produce a transformed
+        array of the same size
+        
+        e.g the Transpose which flips the order of the axes of an array
+        
+        For an arbitrary N-dimensional array the transpose operation 
+        reverses all the axes
+        
+        The transpose function np.transpose also exists as a method in ndarray
+        as the special method name ndarray.T
+        
+        np.flipr(flip left-right)
+        np.flipud(flip up down)
+        np.rot90
+        np.sort
+        
+"""
+
+data = np.arange(9).reshape(3, 3)
+transposed = np.transpose(data)
+
+data = np.random.randn(1, 2, 3, 4, 5)
+data.T.shape
