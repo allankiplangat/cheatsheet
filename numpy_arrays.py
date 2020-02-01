@@ -93,3 +93,58 @@ CC = np.concatenate([C, C], axis=0)
 CC
 
 A / CC
+
+"""
+    ELEMENTWISE FUNCTIONS:
+        Numpy provides vectorized functions for elementwise evaluation of 
+        many elementary math functions and operations
+        
+        They take a single array as input and returns a new array of the same
+        shape 
+        
+        The output datatype is not necessarily the same
+        
+        Many of the mathematical operator functions operates on two input 
+        arrays returning one array
+        
+        Defining new functions:
+            1. Express in terms of already existing numpy operations
+            2. np.vectorize function
+        
+        
+"""
+
+# np.sin function -> to compute the sin function for all values in the array
+x = np.linspace(-1, 1, 11)
+y = np.sin(np.pi * x)
+# Rounding
+rounded = np.round(y, decimals=4)
+
+# Defining new functions that operate on numpy arrays on an elementwise basis
+# Heaviside step function (Works for scalar input)
+def heaviside(x):
+    return 1 if x > 0 else 0
+
+heaviside(-1)
+heaviside(1.5)
+
+# This doesnt work for numpy array input
+x = np.linspace(-5, 5, 11)
+
+heaviside(x)
+
+heaviside = np.vectorize(heaviside)
+heaviside(x)
+
+"""
+Using the np.vectorize the scalar Heaviside function can be converted into 
+a vectorized function 
+
+It will be relatively be slow since the original function must be called for
+each element in the 
+
+NOTE: A more efficient way is to use is to implement this function
+using arithmetic with Boolean-valued arrays
+
+However its quick and convinient for scalar input
+"""
