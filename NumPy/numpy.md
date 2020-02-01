@@ -1,6 +1,6 @@
 ## NumPy 
 
-- [Creating NumPy Arrays](/NumPy/creatingarrays.py)
+- [Creating NumPy Arrays](/NumPy/creatingarrays.md)
 - [nD-array object and data types](/NumPy/ndarray-datatypes.py)
 - [Indexing & Slicing](/NumPy/indexing-slicing.py)
 - [Reshaping & resizing](/NumPy/reshape-resizing.py)
