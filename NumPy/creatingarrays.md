@@ -12,6 +12,7 @@ Creating Arrays
       - [Filling an already created array](#filling-an-already-created-array)
       - [Filling an array with uninitialized values](#filling-an-array-with-uninitialized-values)
   - [Arrays Filled with Incremental Sequences](#arrays-filled-with-incremental-sequences)
+  - [Arrays Filled with Logarithmic Sequences](#arrays-filled-with-logarithmic-sequences)
 
 ## Arrays Created from Lists and Other Array-Like Objects
 
@@ -268,6 +269,31 @@ Creating Arrays
     Out[3]: array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])
 
 ```
+
+## Arrays Filled with Logarithmic Sequences
+
+**Function:** 
+    ```np.logspace```
+
+>**Arguments:** 
+    First argument (start value)
+    Second argument (end value)
+    The 1st and 2nd arguments are powers of the optional base keyword arguments (which defaults to 10)
+    Third argument (increment/step ) the increments between the elements are logarithmically distributed
+
+>**Returns:** NumPy array with logarithmically distributed values
+
+```python
+
+    # 5 data points between 10**0 = 1 to 10**2=100
+    In [5]: data = np.logspace(0, 2, 5) 
+
+    In [6]: data
+    Out[6]: 
+    array([  1. , 3.16227766,  10. , 31.6227766 ,1. ])
+
+```
+
 
 
 
