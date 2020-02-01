@@ -189,3 +189,104 @@ data3 = np.arange(1, 10).reshape(3,3)
 data4 = data3.sum() # Sums all elements
 data5 = data3.sum(axis=0)
 data6 = data3.sum(axis=1)
+
+
+"""
+BOOLEAN ARRAYS AND CONDITIONAL EXPRESSIONS:
+    
+    When computing with NumPy arrays there is need to compare elements
+    in different arrays and perform conditional computations based on the 
+    result of such comparisons.
+    
+    Numpy arrays can be used with the usual comparison operators 
+    e.g >, <, >=, <=, == and !=
+    
+    The comparison are made on an element-by-element basis
+    
+    The broadcasting rules also apply to comparison operators.
+    
+    If two operators have compatible shapes and sizes, the result of the 
+    comparison is a new array with Boolean values(with dtype as np.bool) that
+    gives the result of the comparison for each element:
+        
+    To use the result of comparison between arrays in e.g
+    an if statement, we need to agregate the Boolean values of the resulting
+    arrays in some suitable fashion to obtain a single True or False
+    
+    A common Use-case is to apply the np.all or np.any aggregation functions,
+    depending on the situation at hand
+        
+"""
+
+a = np.array([1, 2, 3, 4])
+b = np.array([4, 3, 2, 1])
+
+a < b
+
+np.all(a < b)
+
+np.any(a < b)
+
+if np.all(a < b):
+    print (" All elements in a are smaller than their corresponding element in b")
+elif np.any(a < b):
+    print("Some elements in a are smaller than their corresponding element in b")
+else:
+    print("All elements in b are smaller than their corresponding element in a")
+
+
+"""
+
+The advantage of Boolean-valued arrays, however, is that they often make it 
+possible to avoid conditional if statements
+
+By using Boolean-valued arrays in arithmetic operations, its possible
+to write conditional computations in vectorized form
+
+When appearing in arithmetic expressions together with scalar number, or
+another NumPy array with a numerical data type, a Boolean array is converted to 
+a numerical - value based array with values 0 and 1 in place of False and True
+"""
+
+x = np.array([-2, -1, 0, 1, 2])
+
+x > 0
+
+1 * (x > 0)
+
+x * (x > 0)
+
+
+"""
+np.where selects elements from two arrays(2, 3) arguments given a boolean
+valued array condition (1) argument
+
+For elements where condition is True, the corrsponding values from the array
+given as 2nd argument are selected
+
+If Condition is Flase elements from the 3rd argument array are selected
+
+np.choose takes the 1 argument a list or array with indices that determine 
+from which array in a given list of arrays of an element is picked from
+
+np.nonzero returns a tuple of indices that can be used to index the array
+(e.g the one that the condition was based on)
+
+Has same result with abs(x) > 2
+
+It uses fancy indexing with the indices return by np.nonzero rather than 
+Boolean-valued array indexing
+
+"""
+
+# np.where
+x = np.linspace(-4, 4, 9)
+np.where(x<0, x**2, x**3)
+
+# np.choose
+np.choose([0, 0, 0, 1, 1, 1, 2, 2, 2], [x**2, x**3, x**4])
+
+#np.nonzero
+np.nonzero(abs(x) > 2)
+x[np.nonzero(abs(x) > 2)]
+x[abs(x) > 2]
