@@ -11,6 +11,7 @@ Creating Arrays
       - [Any constant value](#any-constant-value)
       - [Filling an already created array](#filling-an-already-created-array)
       - [Filling an array with uninitialized values](#filling-an-array-with-uninitialized-values)
+  - [Arrays Filled with Incremental Sequences](#arrays-filled-with-incremental-sequences)
 
 ## Arrays Created from Lists and Other Array-Like Objects
 
@@ -111,7 +112,7 @@ Creating Arrays
 #### Any constant value
 
 >**Function:** 
-    np.full
+    ```np.full```
 
 >**Arguments:** 
     1. First argument (shape) - ``int`` for **1D** or ```tuple```  describing number of elements along each dimension of the array e.e (2, 3)
@@ -164,7 +165,7 @@ Creating Arrays
 #### Filling an already created array
 
 >**Function:** 
-    np.fill
+    ```np.fill```
 
 >**Arguments:** 
     First argument (value)
@@ -199,7 +200,7 @@ Creating Arrays
 #### Filling an array with uninitialized values
 
 >**Function:** 
-    np.empty
+    ```np.empty```
 
 >**Arguments:** 
     First argument (value)
@@ -229,4 +230,44 @@ Creating Arrays
            [0.5, 0.5, 0.5, 0.5]])
 
 ```
+
+## Arrays Filled with Incremental Sequences
+
+>**Usecases** When an array with evenly spaced values between starting and ending values
+
+>**Function:** 
+    ```np.arange```
+    ```np.linspace```
+
+>**Arguments:** 
+    First argument (start value)
+    Second argument (end value)
+    Third argument (increment/step on the arange & total number of points for linspace)
+
+>**Returns:** NumPy array with evenly spaced values
+
+```python
+    # Does not include end value 20
+
+    In [2]: data = np.arange(0, 20, 1)
+
+    In [3]: data
+    Out[3]: 
+    array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+           17, 18, 19])
+
+```
+
+```python
+    # Includes the end value this behaviour can be changed by using endpoint keyword argument
+    # Ideal to be used whenever the increment is a non integer
+
+    In [2]: data = np.linspace(0,10,11)
+
+    In [3]: data
+    Out[3]: array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])
+
+```
+
+
 
