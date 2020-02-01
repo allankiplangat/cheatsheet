@@ -290,3 +290,41 @@ np.choose([0, 0, 0, 1, 1, 1, 2, 2, 2], [x**2, x**3, x**4])
 np.nonzero(abs(x) > 2)
 x[np.nonzero(abs(x) > 2)]
 x[abs(x) > 2]
+
+"""
+    SET OPERATIONS:
+        Managing unordered collection of unique objects
+        
+        numpy has functions for operating on sets stored as numpy arrays
+        
+        using numpy arrays to describe and operate on sets allows expressing
+        certain operations in vectorized form
+        
+        np.in1d function - testing if the values in a numpy array are included
+        in a set 
+        tests for existance of each element of its first argument in the 
+        array passed as the second argument.
+"""
+# Creates a new array with unique elements, where each value only appears once.
+a = np.unique([1, 2, 3, 3])
+b = np.unique([2, 3, 4, 4, 5, 6, 5])
+
+# Tests for the existence of an array of elements in another array.
+np.in1d(a, b)
+
+# using the in keyword
+1 in a
+1 in b
+
+# To test if a is a subset of b
+np.all(np.in1d(a, b))
+
+# Union (set of elements included in either or both sets)
+np.union1d(a, b)
+
+# Intersection(elements included in both sets)
+np.intersect1d(a, b)
+
+# difference (elements included on one of the sets but not the other)
+np.setdiff1d(a, b)
+np.setdiff1d(b, a)
