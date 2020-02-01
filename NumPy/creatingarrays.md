@@ -6,6 +6,11 @@ Creating Arrays
       - [1D Array](#1d-array)
       - [2D Array](#2d-array)
   - [Arrays Filled with Constant Values](#arrays-filled-with-constant-values)
+      - [Zeros](#zeros)
+      - [ones](#ones)
+      - [Any constant value](#any-constant-value)
+      - [Filling an already created array](#filling-an-already-created-array)
+      - [Filling an array with uninitialized values](#filling-an-array-with-uninitialized-values)
 
 ## Arrays Created from Lists and Other Array-Like Objects
 
@@ -59,7 +64,7 @@ Creating Arrays
 ## Arrays Filled with Constant Values
 
 >**Functions:** 
-    np.zeros and np.ones np.full np.fill
+    np.zeros and np.ones np.full np.fill np.empty
 
 >**Arguments:** 
     1. First argument (shape) - ``int`` for **1D** or ```tuple```  describing number of elements along each dimension of the array e.e (2,3)
@@ -68,7 +73,7 @@ Creating Arrays
 
 >**Returns:** NumPy array filled with the specified shape
 
-- Zeros
+#### Zeros
 
 ```python
 
@@ -87,7 +92,7 @@ Creating Arrays
 
 ```
 
-- ones
+#### ones
 
 ```python
 
@@ -103,7 +108,7 @@ Creating Arrays
     Out[30]: (4,)
 
 ```
-- Any constant value
+#### Any constant value
 
 >**Function:** 
     np.full
@@ -156,7 +161,7 @@ Creating Arrays
            [1.6, 1.6, 1.6, 1.6]])
 
 ```
-- Filling an already created array
+#### Filling an already created array
 
 >**Function:** 
     np.fill
@@ -188,6 +193,40 @@ Creating Arrays
            [1.8, 1.8, 1.8, 1.8],
            [1.8, 1.8, 1.8, 1.8],
            [1.8, 1.8, 1.8, 1.8]])
+
+```
+
+#### Filling an array with uninitialized values
+
+>**Function:** 
+    np.empty
+
+>**Arguments:** 
+    First argument (value)
+
+>**Returns:** NumPy array filled with uninitialized values
+
+**_NOTE: This function should only be used when the initialization of all elements can be quaranteed by other means e.g an explicit loop or assignment_**
+
+```python
+
+    In [50]: data = np.empty((4,4))
+
+    In [51]: data
+    Out[51]: 
+    array([[1.8, 1.8, 1.8, 1.8],
+           [1.8, 1.8, 1.8, 1.8],
+           [1.8, 1.8, 1.8, 1.8],
+           [1.8, 1.8, 1.8, 1.8]])
+
+    In [52]: data.fill(0.5)
+
+    In [53]: data
+    Out[53]: 
+    array([[0.5, 0.5, 0.5, 0.5],
+           [0.5, 0.5, 0.5, 0.5],
+           [0.5, 0.5, 0.5, 0.5],
+           [0.5, 0.5, 0.5, 0.5]])
 
 ```
 
