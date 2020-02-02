@@ -4,3 +4,4 @@
 
 - [Anaconda](/anaconda.md)
 - [NumPy (Numerical Python)](./NumPy/numpy.md)
+- [Matplotlib](/Matplotlib/matplotlib.md)

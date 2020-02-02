@@ -16,6 +16,7 @@ Creating Arrays
   - [Meshgrid Arrays](#meshgrid-arrays)
   - [Uninitialized Arrays](#uninitialized-arrays)
   - [Creating Arrays with Properties of Other Arrays](#creating-arrays-with-properties-of-other-arrays)
+  - [Creating Matrix Arrays](#creating-matrix-arrays)
 
 ## Arrays Created from Lists and Other Array-Like Objects
 
@@ -385,7 +386,7 @@ Creating Arrays
 >**Usecase:**
     A function that takes arrays of unspecified type and size and requires working arrays of the same size and type
 
->**Function:** 
+>**Functions:** 
     ```np.ones_like```
     ```np.zeros_like```
     ```np.full_like```
@@ -403,7 +404,40 @@ Creating Arrays
 
 ```
 
+## Creating Matrix Arrays
+
+>**Functions:** 
+    ```np.identity``` -> Generates a square matrix with ones on the diagonal and zeros elsewhere
+    ```np.eye``` -> Generates matrices with ones on the diagonal (optionally offset) produces matrices with nonzero diagonals above and below the diagonal
+    ```np.diag``` -> Matrix with 1-D on the diagonal (optional keyword k to specify an offset from the diagonal)
 
 
+```python
 
+    # Identity Matrix
+    In [21]: np.identity(4)
+    Out[21]: 
+    array([[1., 0., 0., 0.],
+           [0., 1., 0., 0.],
+           [0., 0., 1., 0.],
+           [0., 0., 0., 1.]])
 
+    In [22]: np.eye(3, k=1)
+    Out[22]: 
+    array([[0., 1., 0.],
+           [0., 0., 1.],
+           [0., 0., 0.]])
+
+    In [23]: np.eye(3, k=-1)
+    Out[23]: 
+    array([[0., 0., 0.],
+           [1., 0., 0.],
+           [0., 1., 0.]])
+
+    In [24]: np.diag(np.arange(0, 20, 5))
+    Out[24]: 
+    array([[ 0,  0,  0,  0],
+           [ 0,  5,  0,  0],
+           [ 0,  0, 10,  0],
+           [ 0,  0,  0, 15]])
+```
